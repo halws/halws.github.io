@@ -4,6 +4,15 @@ $(function() {
     messagingSenderId: '928454489570'
   });
 
+
+  var messaging = firebase.messaging();
+  messaging.onMessage(function(payload) {
+    console.log('Message received. ', payload);
+    new Notification(payload.notification.title, payload.notification);
+  });
+
+
+
   // браузер поддерживает уведомления
   // вообще, эту проверку должна делать библиотека Firebase, но она этого не делает
   if ('Notification' in window) {
