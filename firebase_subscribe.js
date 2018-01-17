@@ -5,11 +5,10 @@ $(function() {
   });
 
 
-  var messaging = firebase.messaging();
-  messaging.onMessage(function(payload) {
-    console.log('Message received. ', payload);
-    new Notification(payload.notification.title, payload.notification);
-  });
+
+
+
+
 
 
 
@@ -17,6 +16,19 @@ $(function() {
   // вообще, эту проверку должна делать библиотека Firebase, но она этого не делает
   if ('Notification' in window) {
     var messaging = firebase.messaging();
+    messaging.onMessage(function(payload) {
+      console.log('Message received. ', payload);
+      // new Notification(payload.notification.title, payload.notification);
+      Push.create("Hello world!", {
+        body: "How's it hangin'?",
+        icon: '/icon.png',
+        timeout: 4000,
+        onClick: function() {
+          window.focus();
+          this.close();
+        }
+      });
+    });
 
     // пользователь уже разрешил получение уведомлений
     // подписываем на уведомления если ещё не подписали
