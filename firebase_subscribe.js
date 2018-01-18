@@ -18,15 +18,15 @@ $(function() {
 
 
 
-  Push.FCM().then(function(FCM) {
-    FCM.getToken().then(function(token) {
-      console.log("Initialized with token " + token);
-    }).catch(function(tokenError) {
-      throw tokenError;
-    });
-  }).catch(function(initError) {
-    throw initError;
-  });
+  // Push.FCM().then(function(FCM) {
+  //   FCM.getToken().then(function(token) {
+  //     console.log("Initialized with token " + token);
+  //   }).catch(function(tokenError) {
+  //     throw tokenError;
+  //   });
+  // }).catch(function(initError) {
+  //   throw initError;
+  // });
 
 
   // // браузер поддерживает уведомления
