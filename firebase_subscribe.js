@@ -1,8 +1,8 @@
 $(function() {
   // firebase_subscribe.js
-  firebase.initializeApp({
-    messagingSenderId: '928454489570'
-  });
+  // firebase.initializeApp({
+  //   messagingSenderId: '928454489570'
+  // });
   var config = {
     apiKey: "AIzaSyBjgTUpEHIrgoaozJ5grEFg7eWncS7GTOk",
     authDomain: "project-928454489570.firebaseapp.com",
