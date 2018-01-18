@@ -5,13 +5,12 @@ $(function() {
   // });
   var config = {
     apiKey: "AIzaSyBjgTUpEHIrgoaozJ5grEFg7eWncS7GTOk",
-    authDomain: "project-928454489570.firebaseapp.com",
+    authDomain: "push-tests-89622.firebaseapp.com",
     databaseURL: "https://push-tests-89622.firebaseio.com",
     projectId: "push-tests-89622",
-    storageBucket: "gs://push-tests-89622.appspot.com/",
+    storageBucket: "push-tests-89622.appspot.com",
     messagingSenderId: "928454489570"
   };
-
 
   Push.config({
     FCM: config
