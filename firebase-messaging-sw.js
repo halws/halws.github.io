@@ -10,25 +10,19 @@ var config = {
   messagingSenderId: "374430497683"
 };
 firebase.initializeApp(config);
-const messaging = firebase.messaging();
-navigator.serviceWorker.ready.then(function(registration) {
-  payload.notification.data = payload.notification; // параметры уведомления
-  registration.showNotification(payload.notification.title, payload.notification);
-}).catch(function(error) {
-  console.log('ServiceWorker registration failed', error);
-});
-// messaging-sw.js
+
+firebase.messaging();
+
 self.addEventListener('notificationclick', function(event) {
   const target = event.notification.data.click_action || '/';
   event.notification.close();
 
-  // этот код должен проверять список открытых вкладок и переключатся на открытую
-  // вкладку с ссылкой если такая есть, иначе открывает новую вкладку
+  // This looks to see if the current is already open and focuses if it is
   event.waitUntil(clients.matchAll({
     type: 'window',
     includeUncontrolled: true
   }).then(function(clientList) {
-    // clientList почему-то всегда пуст!?
+    // clientList always is empty?!
     for (var i = 0; i < clientList.length; i++) {
       var client = clientList[i];
       if (client.url == target && 'focus' in client) {
@@ -36,7 +30,6 @@ self.addEventListener('notificationclick', function(event) {
       }
     }
 
-    // Открываем новое окно
     return clients.openWindow(target);
   }));
 });
