@@ -15,7 +15,7 @@ $(function() {
   Push.config({
     FCM: config
   });
-
+  Push.FCM();
 
 
   // Push.FCM().then(function(FCM) {
