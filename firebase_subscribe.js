@@ -3,30 +3,30 @@ $(function() {
   // firebase.initializeApp({
   //   messagingSenderId: '928454489570'
   // });
-  // var config = {
-  //   apiKey: "AIzaSyAQ-BgQUaVXPXsTqEVXAHYSkghXrxrIVvA",
-  //   authDomain: "push-test-9eec2.firebaseapp.com",
-  //   databaseURL: "https://push-test-9eec2.firebaseio.com",
-  //   projectId: "push-test-9eec2",
-  //   storageBucket: "push-test-9eec2.appspot.com",
-  //   messagingSenderId: "374430497683"
-  // };
-  //
-  // Push.config({
-  //   FCM: config
-  // });
-  // // Push.FCM();
-  //
-  // console.log("Initialized with token " + "token");
-  // Push.FCM().then(function(FCM) {
-  //   FCM.getToken().then(function(token) {
-  //     console.log("Initialized with token " + token);
-  //   }).catch(function(tokenError) {
-  //     throw tokenError;
-  //   });
-  // }).catch(function(initError) {
-  //   throw initError;
-  // });
+  var config = {
+    apiKey: "AIzaSyAQ-BgQUaVXPXsTqEVXAHYSkghXrxrIVvA",
+    authDomain: "push-test-9eec2.firebaseapp.com",
+    databaseURL: "https://push-test-9eec2.firebaseio.com",
+    projectId: "push-test-9eec2",
+    storageBucket: "push-test-9eec2.appspot.com",
+    messagingSenderId: "374430497683"
+  };
+
+  Push.config({
+    FCM: config
+  });
+  // Push.FCM();
+
+  console.log("Initialized with token " + "token");
+  Push.FCM().then(function(FCM) {
+    FCM.getToken().then(function(token) {
+      console.log("Initialized with token " + token);
+    }).catch(function(tokenError) {
+      throw tokenError;
+    });
+  }).catch(function(initError) {
+    throw initError;
+  });
 
 
   // // браузер поддерживает уведомления
