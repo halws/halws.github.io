@@ -19,8 +19,8 @@ $(function() {
        */
       Push.config({
         serviceWorker: './firebase-messaging-sw.js',
-        requireInteraction: true,
-        // timeout: 4000,
+        // requireInteraction: true,
+        timeout: 2000,
         fallback: function(payload) {
           alert(paload);
           // Code that executes on browsers with no notification support
