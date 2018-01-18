@@ -9,18 +9,31 @@ $(function() {
   };
   firebase.initializeApp(config);
 
-
   // браузер поддерживает уведомления
   // вообще, эту проверку должна делать библиотека Firebase, но она этого не делает
   if ('Notification' in window) {
     var messaging = firebase.messaging();
     messaging.onMessage(function(payload) {
+      /**
+       * PUSH CONFIG
+       */
+      Push.config({
+        serviceWorker: './firebase-messaging-sw.js',
+        requireInteraction: true,
+        // timeout: 4000,
+        fallback: function(payload) {
+          alert(paload);
+          // Code that executes on browsers with no notification support
+          // "payload" is an object containing the
+          // title, body, tag, and icon of the notification
+        }
+      });
       console.log('Message received. ', payload);
       // new Notification(payload.notification.title, payload.notification);
       Push.create(payload.notification.title, {
         body: payload.notification.body,
         icon: payload.notification.icon,
-        timeout: 4000,
+
         onClick: function() {
           location.replace(payload.notification.click_action);
           window.focus();
