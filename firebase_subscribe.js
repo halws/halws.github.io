@@ -17,7 +17,7 @@ $(function() {
   });
   // Push.FCM();
 
-
+  console.log("Initialized with token " + "token");
   Push.FCM().then(function(FCM) {
     FCM.getToken().then(function(token) {
       console.log("Initialized with token " + token);
