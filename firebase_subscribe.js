@@ -1,4 +1,15 @@
 $(function() {
+  Push.config({
+    serviceWorker: './firebase-messaging-sw.js',
+    // requireInteraction: true,
+    timeout: 2000,
+    fallback: function(payload) {
+      alert(paload);
+      // Code that executes on browsers with no notification support
+      // "payload" is an object containing the
+      // title, body, tag, and icon of the notification
+    }
+  });
   var config = {
     apiKey: "AIzaSyAQ-BgQUaVXPXsTqEVXAHYSkghXrxrIVvA",
     authDomain: "push-test-9eec2.firebaseapp.com",
@@ -17,17 +28,7 @@ $(function() {
       /**
        * PUSH CONFIG
        */
-      Push.config({
-        serviceWorker: './firebase-messaging-sw.js',
-        // requireInteraction: true,
-        timeout: 2000,
-        fallback: function(payload) {
-          alert(paload);
-          // Code that executes on browsers with no notification support
-          // "payload" is an object containing the
-          // title, body, tag, and icon of the notification
-        }
-      });
+
       console.log('Message received. ', payload);
       // new Notification(payload.notification.title, payload.notification);
       Push.create(payload.notification.title, {
