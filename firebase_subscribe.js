@@ -4,12 +4,12 @@ $(function() {
   //   messagingSenderId: '928454489570'
   // });
   var config = {
-    apiKey: "AIzaSyBjgTUpEHIrgoaozJ5grEFg7eWncS7GTOk",
-    authDomain: "push-tests-89622.firebaseapp.com",
-    databaseURL: "https://push-tests-89622.firebaseio.com",
-    projectId: "push-tests-89622",
-    storageBucket: "push-tests-89622.appspot.com",
-    messagingSenderId: "928454489570"
+    apiKey: "AIzaSyAQ-BgQUaVXPXsTqEVXAHYSkghXrxrIVvA",
+    authDomain: "push-test-9eec2.firebaseapp.com",
+    databaseURL: "https://push-test-9eec2.firebaseio.com",
+    projectId: "push-test-9eec2",
+    storageBucket: "push-test-9eec2.appspot.com",
+    messagingSenderId: "374430497683"
   };
 
   Push.config({

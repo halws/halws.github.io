@@ -1,9 +1,14 @@
 // firebase-messaging-sw.js
 importScripts('https://www.gstatic.com/firebasejs/4.8.2/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/4.8.2/firebase-messaging.js');
+if (firebase.apps.length > 0)
+  firebase.messaging();
 
-firebase.initializeApp({
-  messagingSenderId: '928454489570'
+self.addEventListener('message', function(event) {
+  if (firebase.apps.length === 0) {
+    firebase.initializeApp(event.data);
+    firebase.messaging();
+  }
+
+  event.ports[0].postMessage(event.data);
 });
-
-const messaging = firebase.messaging();
