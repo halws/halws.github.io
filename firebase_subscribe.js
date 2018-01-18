@@ -17,12 +17,12 @@ $(function() {
     messaging.onMessage(function(payload) {
       console.log('Message received. ', payload);
       // new Notification(payload.notification.title, payload.notification);
-      Push.create(payload.title, {
-        body: payload.body,
-        icon: payload.icon,
+      Push.create(payload.notification.title, {
+        body: payload.notification.body,
+        icon: payload.notification.icon,
         timeout: 4000,
         onClick: function() {
-          location.replace(click_action);
+          location.replace(payload.notification.click_action);
           window.focus();
           this.close();
         }
