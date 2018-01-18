@@ -7,7 +7,6 @@ $(function() {
     storageBucket: "push-test-9eec2.appspot.com",
     messagingSenderId: "374430497683"
   };
-  firebase_subscribe.js
   firebase.initializeApp(config);
 
 
