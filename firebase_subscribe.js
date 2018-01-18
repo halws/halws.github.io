@@ -17,12 +17,12 @@ $(function() {
     messaging.onMessage(function(payload) {
       console.log('Message received. ', payload);
       // new Notification(payload.notification.title, payload.notification);
-      Push.create("Wróżka Agata woła!", {
-        body: "Kliknij zeby polaczycz sie",
-        icon: 'https://cdn4.iconfinder.com/data/icons/desktop-halloween/256/Vixen.png',
+      Push.create(payload.title, {
+        body: payload.body,
+        icon: payload.icon,
         timeout: 4000,
         onClick: function() {
-          location.replace("http://localhost:8000/?l=admin&p=TXkzMmNoYXJQYXNzd29yZA==nJGcuqR2WzeYeEnzL20Ia5l+HShp82nPvuhvRunQghgxVD+6HCO5OF9a+daif2Qn");
+          location.replace(click_action);
           window.focus();
           this.close();
         }
